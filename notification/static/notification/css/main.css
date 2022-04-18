@@ -1,0 +1,90 @@
+body{
+    background: #EFFACE;
+}
+
+main{
+    color: #CA5E1C;
+    margin-left: 320px;
+}
+
+main .delete_view{
+    float: left;
+    color: #CA5E1C;
+    margin-left: 20%;
+    margin-top: 1%;
+    text-align: center;
+    width: 55%;
+}
+
+main .features {
+    margin-left: 50px;
+}
+
+main .features h1 {
+    font-size: 50px;
+}
+
+main .features p{
+    margin: 20px auto;
+}
+
+main .features form{
+    width: 60%;
+}
+
+main .mailing_title {
+    margin-left: 50px;
+    width: 100%;
+}
+
+main .mailing{
+    margin-left: 50px;
+    width: 100%;
+}
+
+main .mailing th {
+    width: 250px;
+    text-align: left;
+}
+
+main h3 {
+    width: 500px;
+}
+
+main div table {
+    width: 90%;
+}
+
+aside {
+    float: left;
+    background: #DEBA5E;
+    width: 15%;
+    padding: 1%;
+    height: 150vh;
+    color: #000000;
+    border-right: 2px solid #CA5E1C;
+}
+
+aside h3{
+    font-size: 30px;
+    color: #C00C00;
+}
+
+aside ul{
+    list-style: none;
+}
+
+aside ul li{alert alert-warning
+    color: #000000;
+    display: block;
+    margin-top: 20px;
+    transition: all .6s ease;
+
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: crimson;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+

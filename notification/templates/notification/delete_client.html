@@ -1,0 +1,27 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+        Удаление клиента
+{% endblock %}
+
+{% block content %}
+   <div class="delete_view">
+       <h1>Удаление клиента</h1>
+       <h3>Телефон {{ client_key_url.number }}</h3>
+       {% if client_key_url.name %}
+            <p>{{ client_key_url.name }}</p>
+       {% endif %}
+       <p>id {{ client_key_url.id }}</p>
+       <p>Мобильный оператор {{client_key_url.operator}}</p>
+       <p>Тег {{client_key_url.operator}}</p>
+       <p>Часовой пояс {{client_key_url.operator}}</p>
+
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Удалить клиента</button>
+            <a href="{% url 'directory' %}" class="btn btn-info">Назад</a>
+        </form>
+
+    </div>
+{% endblock %}

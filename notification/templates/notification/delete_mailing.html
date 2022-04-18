@@ -1,0 +1,26 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+        Удаление рассылки
+{% endblock %}
+
+{% block content %}
+   <div class="delete_view">
+       <h1>Удаление рассылки</h1>
+       <h3>Тема {{ mailing_key_url.theme }}</h3>
+       <p>id {{ mailing_key_url.id }}</p>
+       <p>Текст {{mailing_key_url.operator}}</p>
+       <p>Время начала рассылки {{mailing_key_url.timestart}}</p>
+       <p>Время окончания рассылки {{mailing_key_url.timefinish}}</p>
+       <p>Тег клиентов {{mailing_key_url.foperator}}</p>
+       <p>Оператор клиентов {{mailing_key_url.foperator}}</p>
+
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Удалить рассылку</button>
+            <a href="{% url 'directory' %}" class="btn btn-info">Назад</a>
+        </form>
+
+    </div>
+{% endblock %}

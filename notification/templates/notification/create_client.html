@@ -1,0 +1,28 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+    Добавление нового клиента
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        {% if client_key_url.number %}
+            <h1>{{ client_key_url.number }}</h1>
+        {% else %}
+            <h1>Добавление нового клиента</h1>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.name }}<br>
+            {{ form.number }}<br>
+            {{ form.operator }}<br>
+            {{ form.tag }}<br>
+            {{ form.timezone }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Принять</button>
+        </form>
+    </div>
+
+{% endblock %}

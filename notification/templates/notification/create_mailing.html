@@ -1,0 +1,27 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+    Создание новой рассылки
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Создание новой рассылки</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.theme }}<br>
+            {{ form.text }}<br>
+            <p>Введите дату и время начала рассылки</p>
+            {{ form.timestart }}
+            <p>Введите дату и время окончания рассылки</p>
+            {{ form.timefinish }}<br>
+
+            <h3>Фильтр рассылки</h3>
+            {{ form.ftag }}<br>
+            {{ form.foperator }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Принять</button>
+        </form>
+    </div>
+
+{% endblock %}

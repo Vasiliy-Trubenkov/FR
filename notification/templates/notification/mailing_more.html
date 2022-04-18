@@ -1,0 +1,56 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+        {{ mailing_key_url.theme }}
+{% endblock %}
+
+{% block content %}
+    <div class="delete_view">
+        <h1>{{ mailing_key_url.theme }}</h1>
+        <p>id: {{ mailing_key_url.id }}</p>
+        <p>Текст: {{mailing_key_url.text}}</p>
+        <p>Время начала рассылки: {{mailing_key_url.timestart}}</p>
+        <p>Время окончания рассылки: {{mailing_key_url.timefinish}}</p>
+        <p>Тег клиентов: {{mailing_key_url.ftag}}</p>
+        <p>Оператор клиентов: {{mailing_key_url.foperator}}</p>
+        <p>Отправлено сообщений: {{mailing_key_url.msg_stat}}</p>
+
+        <a href="{% url 'edit_mailing' mailing_key_url.id %}" class="btn btn-warning" name="_edit">Изменить данные</a>
+        <a href="{% url 'delete_mailing' mailing_key_url.id %}" class="btn btn-danger" name="_delete">Удалить рассылку</a>
+        <a href="{% url 'mailing_statistic' %}" class="btn btn-info">Назад</a>
+    </div>
+
+    <div class="mailing">
+        <h3>Статистика сообщений</h3>
+        {% if view.all_messages %}
+            <table>
+                {% for el in view.all_messages %}
+                    {% if el.mailing_list_id == mailing_key_url.id %}
+                        <tr>
+                            <th><br></th>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <th>id</th>
+                            <td>{{ el.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Время создания</th>
+                            <td>{{ el.date }}</td>
+                        </tr>
+                        <tr>
+                            <th>id клиента</th>
+                            <td>{{ el.client_id }}</td>
+                        </tr>
+                        <tr>
+                            <th>id рассылки</th>
+                            <td>{{ el.mailing_list_id }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Въ салонѣ тихо, пыльно и пусто. Только въ одномъ изъ угловъ вышиваетъ гладью пожилая княжна</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+    Статистика рассылок
+{% endblock %}
+
+{% block content %}
+<div class="mailing_title">
+    <h1>Статистика рассылок</h1>
+    <br>
+    <p>Общее число рассылок: {{ count }}</p>
+</div>
+
+
+<div class="mailing">
+    {% if mailing_view %}
+        <table>
+            {% for el in mailing_view %}
+                <tr>
+                    <th>Тема</th>
+                    <td>{{ el.theme }}</td>
+                </tr>
+                <tr>
+                    <th>id</th>
+                    <td>{{ el.id }}</td>
+                </tr>
+                <tr>
+                    <th>Содержание</th>
+                    <td>{{ el.text }}</td>
+                </tr>
+                <tr>
+                    <th>Время начала рассылки</th>
+                    <td>{{ el.timestart }}</td>
+                </tr>
+                <tr>
+                    <th>Время окончания рассылки</th>
+                    <td>{{ el.timefinish }}</td>
+                </tr>
+                <tr>
+                    <th>Оператор клиентов</th>
+                    <td>{{ el.foperator }}</td>
+                </tr>
+                <tr>
+                    <th>Тег клиентов</th>
+                    <td>{{ el.ftag }}</td>
+                </tr>
+                <tr>
+                    <th>Количество отправленных сообщений</th>
+                    <td>{{ el.msg_stat }}</td>
+                </tr>
+                <tr>
+                    <td><a href="{% url 'mailing_more' el.id %}" class="btn btn-info" name="_edit">Подробнее</a></td>
+                </tr>
+                <tr>
+                    <th><br></th>
+                    <td><br></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+</div>
+    {% else %}
+        <p>Въ салонѣ тихо, пыльно и пусто. Только въ одномъ изъ угловъ вышиваетъ гладью пожилая княжна</p>
+    {% endif %}
+{% endblock %}

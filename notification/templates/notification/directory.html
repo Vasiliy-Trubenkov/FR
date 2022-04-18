@@ -1,0 +1,49 @@
+{% extends 'notification/layout.html' %}
+
+{% block title %}
+    Справочник клиентов
+{% endblock %}
+
+{% block content %}
+    <h1>Справочник клиентов</h1>
+
+<div>
+    {% if client_view %}
+        <table>
+            <tr>
+                <th>id клиента</th>
+                <th>Номер</th>
+                <th>Оператор</th>
+                <th class="tag">Тег</th>
+                <th>Часовой пояс</th>
+                <th>Имя</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            {% for el in client_view %}
+                <tr>
+                    <td>{{ el.id }}</td>
+                    <td>{{ el.number }}</td>
+                    <td>{{ el.operator }}</td>
+                    <td>{{ el.tag }}</td>
+                    <td>{{ el.timezone }}</td>
+                    <td>
+                        {% if el.name %}
+                            {{ el.name }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'edit_client' el.id %}" class="btn btn-info" name="_edit">Обновить данные</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_client' el.id %}" class="btn btn-danger" name="_delete">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+</div>
+        {% else %}
+            <p>Въ салонѣ тихо, пыльно и пусто. Только въ одномъ изъ угловъ вышиваетъ гладью пожилая княжна</p>
+        {% endif %}
+{% endblock %}
