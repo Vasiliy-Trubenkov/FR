@@ -33,10 +33,28 @@
 * Все функции представлены понятным графическим интерфейсом, написанным на Django
 
 ## Установка
-Для запуска сервиса выполните команду в директории проекта
+Для запуска сервиса на Linux выполните команду в директории проекта
 ```
+sudo apt-get update
+sudo apt-get install python3
+cd ~
+git clone git@gitlab.com:v.trubenkov/fr.git
+cd FR
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 manage.py runserver
+```
+Для запуска сервиса на Windows, предварительно установив Python 3.10.2, выполните команду в директории проекта
+```
+git clone git@gitlab.com:v.trubenkov/fr.git
+cd FR
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 python manage.py runserver
 ```
+
 Сайт запустится на локальном порте в режиме отладки.
 
 # Контакты
